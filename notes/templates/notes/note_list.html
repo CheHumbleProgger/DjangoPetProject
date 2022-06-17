@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+<h1>Your notes</h1>
+{% if note_list %}
+    <ul>
+        {% for note in note_list %}
+            <li>
+                {% if note.owner == user %}
+                <p><a href="{% url 'notes:note_detail' note.id %}">{{ note.title }}</a></p>
+                <a href="{% url 'notes:note_update' note.id %}">update</a> |
+                <a href="{% url 'notes:note_delete'  note.id %}">delete</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>You have no notes now</p>
+{% endif %}
+<p>
+    <a href="{% url 'notes:note_create' %}">Create a new note</a>
+</p>
+    <p><a href="{% url 'logout' %}?next={% url 'home:main' %}">Logout</a> </p>
+{% else %}
+<p> You need to log in for making your notes
+<a href="{% url 'login' %}?next={% url 'notes:all' %}">Login</a>
+</p>
+{% endif %}
+<p>
+    <a href="{% url 'home:main' %}">Return to home page</a>
+</p>
+</body>
+</html>

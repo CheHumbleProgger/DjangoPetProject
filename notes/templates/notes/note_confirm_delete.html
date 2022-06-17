@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Note deletion</title>
+</head>
+<body>
+<h1>Delete note</h1>
+<p>Are you sure you want to delete note: {{ note.title }} ?</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete">
+    <input type="submit" onclick="window.location='{% url 'notes:all' %}'; return false" value="Cancel">
+</form>
+</body>
+</html>

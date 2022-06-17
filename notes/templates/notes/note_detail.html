@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load humanize %}
+<head>
+    <meta charset="UTF-8">
+    <title>{{ note.title }}</title>
+</head>
+<body>
+<p> Last update {{ note.updated_at|naturaltime }}</p>
+
+<h1>{{ note.title }}</h1>
+
+<p>{{ note.text }}</p>
+
+<p>
+    <a href="{% url 'notes:note_update' note.id%}">Update</a>
+    <a href="{% url 'notes:note_delete' note.id %}">Delete</a>
+</p>
+
+<p>
+    <a href="{% url 'notes:all' %}">Return</a>
+</p>
+
+</body>
+</html>

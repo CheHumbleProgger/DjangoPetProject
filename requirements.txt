@@ -1,0 +1,2 @@
+python packages to use in order to make it work
+it requires only django with its dependencies to work properly 

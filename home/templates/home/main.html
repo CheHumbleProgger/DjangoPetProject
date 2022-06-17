@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet-project site</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+<p>Hello, {{ user.username }}. My name is Egor and this is the site of my pet-project</p>
+    <p> Here you can log out <a href="{% url 'logout' %}?next={% url 'home:main' %}">Logout</a></p>
+{% else %}
+<p>Hello, guest. My name is Egor and this is the site of my pet-project. You can log in here <a href="{% url 'login' %}?next={% url 'home:main' %}">Login</a></p>
+{% endif %}
+<p>Here are my apps:</p>
+<ul>
+    <li>
+        <a href="{% url 'notes:all' %}">Notes</a> Service for many users. For using it you have to log in
+        <a href="{% url 'login' %}?next={% url 'notes:all' %}">Login</a> after logging in you will be redirected to "notes"
+    </li>
+</ul>
+<p> Also visit my git
+<a href="//github.com/CheHumbleProgger">My Git</a></p>
+<p>If you are willing to contact me my email is Yegor-100@mail.ru</p>
+</body>
+</html>
