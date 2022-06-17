@@ -1,5 +1,5 @@
-# PetProject
-This is my PetProject using Django
+# DjangoPetProject
+This is my pet-project in backend development using Django
 
 Directories:
 
